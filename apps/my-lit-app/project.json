@@ -27,18 +27,13 @@
       }
     },
     "serve": {
-      "executor": "@nx/js:node",
-      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "executor": "nx:run-commands",
       "options": {
-        "buildTarget": "my-lit-app:build"
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "my-lit-app:build:development"
-        },
-        "production": {
-          "buildTarget": "my-lit-app:build:production"
-        }
+        "commands": [
+          "http-server dist/apps/my-lit-app",
+          "nx watch --projects=my-lit-app --includeDependentProjects -- nx build my-lit-app"
+        ]
       }
     },
     "test": {
