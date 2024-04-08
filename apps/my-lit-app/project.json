@@ -10,29 +10,18 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "platform": "node",
         "outputPath": "dist/apps/my-lit-app",
-        "format": ["cjs"],
-        "bundle": false,
+        "format": ["esm"],
+        "bundle": true,
+        "thirdParty": true,
         "main": "apps/my-lit-app/src/main.ts",
         "tsConfig": "apps/my-lit-app/tsconfig.app.json",
-        "assets": ["apps/my-lit-app/src/assets"],
+        "assets": ["apps/my-lit-app/src/assets", "apps/my-lit-app/index.html"],
         "generatePackageJson": true,
         "esbuildOptions": {
           "sourcemap": true,
           "outExtension": {
             ".js": ".js"
-          }
-        }
-      },
-      "configurations": {
-        "development": {},
-        "production": {
-          "esbuildOptions": {
-            "sourcemap": false,
-            "outExtension": {
-              ".js": ".js"
-            }
           }
         }
       }
